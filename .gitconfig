@@ -1,0 +1,16 @@
+[alias]
+    co=checkout
+    br=branch
+    st=status
+    stu=status -uno
+
+[user]
+	name = Vadim Graboys
+	email = dimva13@gmail.com
+#    email = dimva13@gmail.com
+# commented out so that git warns when committing to a repo without setting its email
+
+[color]
+    status=auto
+    branch=auto
+    diff=auto
