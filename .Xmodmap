@@ -1,0 +1,10 @@
+!bernie: make F1 another ESC key (shift-F1 for F1)
+keycode 67 = Escape F1
+
+!bernie: make ESC behave like F1
+!keycode 9 = F1
+
+!! No Caps Lock
+clear lock
+!! Make Caps_lock an escape key.
+keycode 0x42 = Escape
