@@ -222,7 +222,8 @@ globalkeys = awful.util.table.join(
               end),
 
     -- custom bindings
-    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium-browser") end)
+    awful.key({ modkey,           }, "i", function () awful.util.spawn("chromium-browser") end),
+    awful.key({ modkey,           }, "e", function () awful.util.spawn("nautilus") end)
 )
 
 clientkeys = awful.util.table.join(
