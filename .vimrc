@@ -57,3 +57,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" less-css syntax highlighting
+au BufNewFile,BufRead *.less set filetype=less
+
