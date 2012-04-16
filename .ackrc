@@ -1,1 +1,2 @@
 --type-set=puppet=.pet,.pp
+--type-set=config=.cfg,.conf
