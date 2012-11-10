@@ -3,18 +3,27 @@
 import os
 import shutil
 
-for root, dirs, files in os.walk('.'):
-    normroot = os.path.normpath(root)
+def get_files():
+    for root, dirs, files in os.walk('.'):
+        for name in files:
+            filename = os.path.normpath(os.path.join(root, name))
 
-    # ignore .git
-    if normroot.startswith('.git'):
-        continue
+            if filename == 'copyfrom.py':
+                continue
 
-    for name in files:
-        if normroot == '.' and name == 'copyfrom.py':
-            continue
+            if filename.startswith('.git'):
+                continue
 
-        filename = os.path.normpath(os.path.join(normroot, name))
+            if filename.endswith('.pyc'):
+                continue
+
+            if filename == 'install.py':
+                continue
+
+            yield filename
+
+def main():
+    for filename in get_files():
         print 'Copying', filename,
         try:
             shutil.copy2(os.path.join(os.path.expanduser('~'), filename), filename)
@@ -22,3 +31,6 @@ for root, dirs, files in os.walk('.'):
         except IOError:
             print '.... Failed'
             pass
+
+if __name__ == '__main__':
+    main()
