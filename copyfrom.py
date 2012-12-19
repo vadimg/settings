@@ -11,7 +11,10 @@ def get_files():
             if filename == 'copyfrom.py':
                 continue
 
-            if filename.startswith('.git'):
+            if filename.startswith('.gitignore'):
+                continue
+
+            if filename.startswith('.git/'):
                 continue
 
             if filename.endswith('.pyc'):
