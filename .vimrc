@@ -23,10 +23,14 @@ set guioptions-=m
 set guioptions-=T
 
 filetype indent on
+filetype plugin indent on
 syntax on
 
 " don't use spaces for makefiles
 autocmd FileType make set noexpandtab
+
+" set html tab-width to 2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 colorscheme desert256
 
@@ -59,4 +63,3 @@ autocmd BufWinLeave * call clearmatches()
 
 " less-css syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
-
