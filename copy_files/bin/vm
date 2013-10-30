@@ -1,0 +1,50 @@
+#!/bin/bash
+
+###########################################################
+# Edit the 2 all-caps variables below for your environment
+#
+# Usage: vm [vm name]
+###########################################################
+
+CHARTBEAT_DIR='/Users/vadim/workspace/chartbeat'
+VM_HOST='vadim.local'
+
+if [[ $# == 1 ]]; then
+    vmhost="$1.local"
+else
+    vmhost=$VM_HOST
+fi
+
+# find relative path from source to target
+relative_path() {
+    source=$1
+    target=$2
+
+    common_part=$source
+    back=
+    while [ "${target#$common_part}" = "${target}" ]; do
+        common_part=$(dirname $common_part)
+        back="../${back}"
+    done
+
+    echo ${back}${target#$common_part/}
+}
+
+relpath=`relative_path $CHARTBEAT_DIR $PWD`
+
+docd=true # if you should cd into a directory after login to vm
+if [[ $relpath == .* ]]; then
+    docd=false
+else
+    if [[ $relpath == $PWD ]]; then
+    cdpath='superfly'
+    else
+        cdpath="superfly/$relpath"
+    fi
+fi
+
+if [[ $docd ]]; then
+    ssh -t $vmhost "cd $cdpath; bash -i"
+else
+    ssh $vmhost
+fi

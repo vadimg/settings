@@ -5,3 +5,4 @@ export PS1='\u@\h:\W$ '
 alias vi='mvim -v'
 
 export PATH=$PATH:/Users/vadim/workspace/chartbeat/external/vmutils
+export PATH=$PATH:/Users/vadim/bin
