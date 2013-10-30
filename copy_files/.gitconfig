@@ -14,3 +14,6 @@
     status=auto
     branch=auto
     diff=auto
+
+[push]
+    default = simple
