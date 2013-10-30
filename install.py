@@ -18,11 +18,10 @@ def mkdir_p(path):
             raise
 
 def main():
-    for filename in get_files():
+    for filename, settings_path, install_path in get_files():
         print 'Copying', filename
-        new_filename = os.path.join(os.path.expanduser('~'), filename)
-        mkdir_p(os.path.dirname(new_filename))
-        shutil.copy2(filename, new_filename)
+        mkdir_p(os.path.dirname(install_path))
+        shutil.copy2(settings_path, install_path)
 
 
 if __name__ == '__main__':
