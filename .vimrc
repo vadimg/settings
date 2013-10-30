@@ -32,6 +32,9 @@ autocmd FileType make set noexpandtab
 " set html tab-width to 2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
+" set javascript tab-width to 2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
 colorscheme desert256
 
 set hlsearch
@@ -63,3 +66,7 @@ autocmd BufWinLeave * call clearmatches()
 
 " less-css syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
+
+" Cursor line
+set cursorline
+"hi CursorLine   cterm=NONE ctermbg=darkgrey
