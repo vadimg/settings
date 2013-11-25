@@ -43,8 +43,13 @@ else
     fi
 fi
 
+cdpath=/home/ubuntu/$cdpath
+
 if [[ $docd ]]; then
-    ssh -t $vmhost "cd $cdpath; bash -i"
+    # if you want ssh keys to be propagated the ubuntu user, add
+    # sudo chmod -R 777 /tmp/ssh*
+    # to the end of your .bashrc on the vm
+    ssh -A -t $vmhost "cd $cdpath; sudo -E -u ubuntu -s"
 else
-    ssh $vmhost
+    ssh -A $vmhost
 fi
