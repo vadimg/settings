@@ -6,3 +6,7 @@ alias vi='mvim -v'
 
 export PATH=$PATH:/Users/vadim/workspace/chartbeat/external/vmutils
 export PATH=$PATH:/Users/vadim/bin
+
+# go
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin

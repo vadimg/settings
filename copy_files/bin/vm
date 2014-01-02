@@ -46,10 +46,15 @@ fi
 cdpath=/home/ubuntu/$cdpath
 
 if [[ $docd ]]; then
-    # if you want ssh keys to be propagated the ubuntu user, add
-    # sudo chmod -R 777 /tmp/ssh*
-    # to the end of your .bashrc on the vm
-    ssh -A -t $vmhost "cd $cdpath; sudo -E -u ubuntu -s"
+    # /home/vadim/propagate-ssh.sh:
+    #sudo chmod -R 777 /tmp/ssh-*
+    #
+    #grep 'export SSH_AUTH_SOCK' ~/.bashrc > /dev/null 2> /dev/null
+    #if [ $? -ne 0 ]; then
+    #        echo 'export SSH_AUTH_SOCK=`ls -t /tmp/ssh-*/* | head -1`' >> ~/.bashrc
+    #fi
+
+    ssh -A -t $vmhost "sudo -u ubuntu -i \"sh /home/vadim/propagate-ssh.sh; cd $cdpath; bash\""
 else
     ssh -A $vmhost
 fi
